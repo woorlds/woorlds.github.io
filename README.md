@@ -21,7 +21,9 @@ copy the seller's official snippet and avoid duplicate entries.
 
 1. Add its privacy and support pages to `woorlds/app-legal`.
 2. Add links to those pages in this site's `index.html`.
-3. Set the app's App Store Connect Marketing URL to https://woorlds.github.io/.
+3. Create an app-specific introduction page and use its URL for App Store Connect
+   Marketing URL. Lorumi uses https://woorlds.github.io/lorumi/.
+   The shared homepage https://woorlds.github.io/ is a fallback.
    Keep its app-specific privacy policy and support URLs.
 4. Register the app and its own ad units in AdMob.
 5. After its App Store listing is public, link that listing in AdMob and check
