@@ -8,6 +8,7 @@
   --action-soft: #dcece5;
   --text: #1c2823;
   --secondary-text: #6d756f;
+  --secondary-on-background: #626a65;
   --border: #d9d2c5;
   --shadow: 0 22px 60px rgb(28 40 35 / 12%);
 }
@@ -108,7 +109,7 @@ a:focus-visible {
   min-height: 44px;
   align-items: center;
   justify-content: center;
-  color: var(--secondary-text);
+  color: var(--secondary-on-background);
   font-size: 13px;
   font-weight: 680;
   text-decoration: none;
@@ -155,7 +156,7 @@ h1 span {
 .lead {
   max-width: 570px;
   margin-bottom: 22px;
-  color: var(--secondary-text);
+  color: var(--secondary-on-background);
   font-size: 17px;
 }
 
@@ -180,7 +181,7 @@ h1 span {
   border-radius: 999px;
   background: var(--action);
   box-shadow: 0 8px 20px rgb(54 120 101 / 20%);
-  color: white;
+  color: var(--background);
   text-decoration: none;
 }
 
@@ -321,7 +322,7 @@ h3 {
 
 .site-footer p {
   margin: 0;
-  color: var(--secondary-text);
+  color: var(--secondary-on-background);
   font-size: 13px;
 }
 
@@ -387,8 +388,15 @@ h3 {
     width: min(calc(100% - 28px), 1060px);
   }
 
+  .site-header {
+    flex-wrap: wrap;
+    padding-block: 10px 8px;
+  }
+
   .site-nav {
+    width: 100%;
     gap: 2px;
+    justify-content: space-between;
   }
 
   .site-nav a {
@@ -396,13 +404,6 @@ h3 {
     font-size: 12px;
   }
 
-  .brand span {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -415,6 +416,7 @@ h3 {
     --action-soft: #23352f;
     --text: #f2f6f3;
     --secondary-text: #c7d1cb;
+    --secondary-on-background: #c7d1cb;
     --border: #344139;
     --shadow: 0 22px 60px rgb(0 0 0 / 34%);
   }
