@@ -1,7 +1,7 @@
 # Boxday Marketing Site Design
 
-**Date:** 2026-09-17  
-**Status:** Design approved; written-spec review pending  
+**Date:** 2026-09-17
+**Status:** Approved for implementation
 **Target:** `https://woorlds.github.io/boxday/`
 
 ## Objective
@@ -68,8 +68,8 @@ Initial implementation tokens:
 | Background | `#F9F2E8` |
 | Card | `#FFFAF4` |
 | Surface | `#F1E5D8` |
-| Action | `#EF6848` |
-| Strong action | `#C94D34` |
+| Action | `#B8442C` |
+| Strong action | `#A63820` |
 | Primary text | `#302B27` |
 | Secondary text | `#756C63` |
 | Border | `#DFD1C3` |

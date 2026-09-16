@@ -161,6 +161,9 @@ def main() -> int:
                 failures.append(f"style.css: missing {required!r}")
         if re.search(r"min-(?:width|height):\s*(?:4[0-3]|[0-3]?\d)px", css):
             failures.append("style.css: interactive targets must not shrink below 44px")
+        for required in ("--action: #b8442c", "--action-strong: #a63820", "aspect-ratio: 1 / .66", "@media (max-width: 350px)", ".brand span { display: none; }"):
+            if required not in css:
+                failures.append(f"style.css: missing reviewed mobile/accessibility rule {required!r}")
     failures.extend(verify_root_link())
     if failures:
         print("\n".join(f"FAIL: {failure}" for failure in failures))
