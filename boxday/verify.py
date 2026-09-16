@@ -156,7 +156,7 @@ def main() -> int:
         failures.append("style.css: stylesheet is missing")
     else:
         css = stylesheet.read_text(encoding="utf-8")
-        for required in ("notification-crop", "prefers-color-scheme: dark", "prefers-reduced-motion", "min-width: 44px"):
+        for required in ("notification-crop", "prefers-color-scheme: dark", "prefers-reduced-motion", "min-width: 44px", "word-break: keep-all"):
             if required not in css:
                 failures.append(f"style.css: missing {required!r}")
         if re.search(r"min-(?:width|height):\s*(?:4[0-3]|[0-3]?\d)px", css):
