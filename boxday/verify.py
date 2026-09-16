@@ -10,6 +10,7 @@ from urllib.parse import urlparse
 
 
 ROOT = Path(__file__).resolve().parent
+SITE_ROOT = ROOT.parent
 PRIVACY_URL = "https://woorlds.github.io/app-legal/boxday/privacy/"
 SUPPORT_URL = "https://woorlds.github.io/app-legal/boxday/support/"
 ALTERNATES = {
@@ -138,6 +139,16 @@ def verify_page(relative_path: str, contract: dict[str, object]) -> list[str]:
     return failures
 
 
+def verify_root_link() -> list[str]:
+    root_index = SITE_ROOT / "index.html"
+    if not root_index.is_file():
+        return ["root index.html is missing"]
+    source = root_index.read_text(encoding="utf-8")
+    if not re.search(r'<a\s+href="/boxday/">Boxday</a>', source):
+        return ["root index.html: Boxday marketing link is missing"]
+    return []
+
+
 def main() -> int:
     failures = [failure for path, contract in EXPECTED.items() for failure in verify_page(path, contract)]
     stylesheet = ROOT / "style.css"
@@ -150,6 +161,7 @@ def main() -> int:
                 failures.append(f"style.css: missing {required!r}")
         if re.search(r"min-(?:width|height):\s*(?:4[0-3]|[0-3]?\d)px", css):
             failures.append("style.css: interactive targets must not shrink below 44px")
+    failures.extend(verify_root_link())
     if failures:
         print("\n".join(f"FAIL: {failure}" for failure in failures))
         return 1
