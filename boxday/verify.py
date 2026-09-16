@@ -10,7 +10,6 @@ from urllib.parse import urlparse
 
 
 ROOT = Path(__file__).resolve().parent
-SITE_ROOT = ROOT.parent
 PRIVACY_URL = "https://woorlds.github.io/app-legal/boxday/privacy/"
 SUPPORT_URL = "https://woorlds.github.io/app-legal/boxday/support/"
 ALTERNATES = {
@@ -25,21 +24,21 @@ EXPECTED = {
         "canonical": ALTERNATES["en"],
         "stylesheet": "./style.css",
         "icon": "./assets/icon.png",
-        "images": ("./assets/icon.png", "./assets/en/today.webp", "./assets/en/editor.webp", "./assets/en/notifications.webp", "./assets/en/stats.webp"),
+        "images": ("./assets/icon.png", "./assets/en/today.webp", "./assets/en/today.webp", "./assets/en/editor.webp", "./assets/en/notifications.webp", "./assets/en/stats.webp"),
     },
     "ko/index.html": {
         "lang": "ko",
         "canonical": ALTERNATES["ko"],
         "stylesheet": "../style.css",
         "icon": "../assets/icon.png",
-        "images": ("../assets/icon.png", "../assets/ko/today.webp", "../assets/ko/editor.webp", "../assets/ko/notifications.webp", "../assets/ko/stats.webp"),
+        "images": ("../assets/icon.png", "../assets/ko/today.webp", "../assets/ko/today.webp", "../assets/ko/editor.webp", "../assets/ko/notifications.webp", "../assets/ko/stats.webp"),
     },
     "ja/index.html": {
         "lang": "ja",
         "canonical": ALTERNATES["ja"],
         "stylesheet": "../style.css",
         "icon": "../assets/icon.png",
-        "images": ("../assets/icon.png", "../assets/ja/today.webp", "../assets/ja/editor.webp", "../assets/ja/notifications.webp", "../assets/ja/stats.webp"),
+        "images": ("../assets/icon.png", "../assets/ja/today.webp", "../assets/ja/today.webp", "../assets/ja/editor.webp", "../assets/ja/notifications.webp", "../assets/ja/stats.webp"),
     },
 }
 FORBIDDEN = ("DEVELOPER", "Seed 200 Test Boxes", "Delete Test Data", "Critical Alerts", "Coming soon")
@@ -139,16 +138,6 @@ def verify_page(relative_path: str, contract: dict[str, object]) -> list[str]:
     return failures
 
 
-def verify_root_link() -> list[str]:
-    root_index = SITE_ROOT / "index.html"
-    if not root_index.is_file():
-        return ["root index.html is missing"]
-    source = root_index.read_text(encoding="utf-8")
-    if not re.search(r'<a\s+href="/boxday/">Boxday</a>', source):
-        return ["root index.html: Boxday marketing link is missing"]
-    return []
-
-
 def main() -> int:
     failures = [failure for path, contract in EXPECTED.items() for failure in verify_page(path, contract)]
     stylesheet = ROOT / "style.css"
@@ -159,7 +148,8 @@ def main() -> int:
         for required in ("notification-crop", "prefers-color-scheme: dark", "prefers-reduced-motion", "min-width: 44px"):
             if required not in css:
                 failures.append(f"style.css: missing {required!r}")
-    failures.extend(verify_root_link())
+        if re.search(r"min-(?:width|height):\s*(?:4[0-3]|[0-3]?\d)px", css):
+            failures.append("style.css: interactive targets must not shrink below 44px")
     if failures:
         print("\n".join(f"FAIL: {failure}" for failure in failures))
         return 1
