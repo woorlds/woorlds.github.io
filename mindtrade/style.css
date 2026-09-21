@@ -1,5 +1,5 @@
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
   --background: #f7f5fb;
   --surface: #ffffff;
   --surface-soft: #f0ecfb;
@@ -560,22 +560,6 @@ h3 {
 
   .feature-evidence {
     padding: 22px 18px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #121019;
-    --surface: #1b1824;
-    --surface-soft: #211c30;
-    --surface-strong: #332855;
-    --accent: #a891ff;
-    --accent-strong: #c1b2ff;
-    --accent-ink: #16121f;
-    --text: #f7f4ff;
-    --secondary: #c5bfd0;
-    --border: #393344;
-    --shadow: 0 28px 68px rgb(0 0 0 / 38%);
   }
 }
 

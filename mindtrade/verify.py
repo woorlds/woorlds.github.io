@@ -55,9 +55,9 @@ EXPECTED: dict[str, dict[str, object]] = {
 }
 
 CSS_CONTRACTS = (
+    "color-scheme: light",
     "min-width: 44px",
     "@media (max-width: 374px)",
-    "@media (prefers-color-scheme: dark)",
     "@media (prefers-reduced-motion: reduce)",
     "overflow-x: clip",
     ":focus-visible",
@@ -144,6 +144,14 @@ def verify_page(relative_path: str, contract: dict[str, object]) -> list[str]:
     ]
     if descriptions != [contract["description"]]:
         failures.append(f"{relative_path}: localized description is incorrect")
+
+    theme_colors = [
+        meta
+        for meta in parser.meta
+        if meta.get("name") == "theme-color"
+    ]
+    if theme_colors != [{"name": "theme-color", "content": "#F7F5FB"}]:
+        failures.append(f"{relative_path}: theme color must stay fixed to the approved light design")
 
     canonicals = [link.get("href", "") for link in parser.links if link.get("rel") == "canonical"]
     if canonicals != [contract["canonical"]]:
@@ -278,6 +286,8 @@ def main() -> int:
         for contract in MOBILE_CSS_CONTRACTS:
             if contract not in stylesheet:
                 failures.append(f"style.css: missing mobile gallery contract {contract!r}")
+        if "@media (prefers-color-scheme: dark)" in stylesheet:
+            failures.append("style.css: automatic dark mode diverges from the approved light design")
         if re.search(
             r"^\s*(?:width|min-width):\s*(?:[5-9]|[1-9]\d+)\d{2,}px",
             stylesheet,
