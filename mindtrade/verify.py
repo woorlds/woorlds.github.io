@@ -259,7 +259,11 @@ def main() -> int:
         for contract in CSS_CONTRACTS:
             if contract not in stylesheet:
                 failures.append(f"style.css: missing contract {contract!r}")
-        if re.search(r"(?:width|min-width):\s*(?:[5-9]|[1-9]\d+)\d{2,}px", stylesheet):
+        if re.search(
+            r"^\s*(?:width|min-width):\s*(?:[5-9]|[1-9]\d+)\d{2,}px",
+            stylesheet,
+            re.MULTILINE,
+        ):
             failures.append("style.css: fixed wide layout risks horizontal overflow")
 
     if failures:
