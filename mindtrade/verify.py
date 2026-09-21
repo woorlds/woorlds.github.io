@@ -116,6 +116,9 @@ def verify_page(relative_path: str, contract: dict[str, object]) -> list[str]:
     parser = PageParser()
     parser.feed(source)
 
+    if "●" in source:
+        failures.append(f"{relative_path}: App Store CTA must not use a generic bullet as its icon")
+
     if parser.html_lang != contract["lang"]:
         failures.append(f"{relative_path}: expected lang={contract['lang']!r}")
     if parser.h1_count != 1:

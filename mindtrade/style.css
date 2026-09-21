@@ -215,6 +215,7 @@ h1 span {
   width: min(100%, 48rem);
   height: clamp(390px, 60vw, 620px);
   margin: 38px auto 0;
+  overflow: clip;
 }
 
 .hero-gallery::before {
