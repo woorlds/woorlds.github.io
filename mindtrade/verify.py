@@ -61,6 +61,15 @@ CSS_CONTRACTS = (
     "@media (prefers-reduced-motion: reduce)",
     "overflow-x: clip",
     ":focus-visible",
+    "width: min(100%, 340px)",
+)
+MOBILE_CSS_CONTRACTS = (
+    "scroll-snap-type: x mandatory",
+    "scroll-snap-align: center",
+    "overscroll-behavior-inline: contain",
+    "-webkit-overflow-scrolling: touch",
+    "width: calc(100% + 28px)",
+    "word-break: keep-all",
 )
 
 
@@ -118,6 +127,8 @@ def verify_page(relative_path: str, contract: dict[str, object]) -> list[str]:
 
     if "●" in source:
         failures.append(f"{relative_path}: App Store CTA must not use a generic bullet as its icon")
+    if 'class="gallery-hint"' not in source:
+        failures.append(f"{relative_path}: mobile gallery needs a localized swipe hint")
 
     if parser.html_lang != contract["lang"]:
         failures.append(f"{relative_path}: expected lang={contract['lang']!r}")
@@ -264,6 +275,9 @@ def main() -> int:
         for contract in CSS_CONTRACTS:
             if contract not in stylesheet:
                 failures.append(f"style.css: missing contract {contract!r}")
+        for contract in MOBILE_CSS_CONTRACTS:
+            if contract not in stylesheet:
+                failures.append(f"style.css: missing mobile gallery contract {contract!r}")
         if re.search(
             r"^\s*(?:width|min-width):\s*(?:[5-9]|[1-9]\d+)\d{2,}px",
             stylesheet,
