@@ -253,6 +253,8 @@ def main() -> int:
         for failure in verify_page(relative_path, contract)
     ]
     failures.extend(verify_assets())
+    if any(ROOT.rglob("__pycache__")):
+        failures.append("site tree: Python cache directories must not be deployed")
 
     stylesheet_path = ROOT / "style.css"
     if not stylesheet_path.is_file():
