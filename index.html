@@ -1,5 +1,8 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Explore Mer apps that solve everyday little frustrations."><title>Mer · Independent App Studio</title><style>body{margin:0;background:#fcfaf5}</style></head><body>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Explore Mer apps that solve everyday little frustrations."><title>Mer · Independent App Studio</title><style>body{margin:0;background:#fcfaf5}#mer-final-home .mf-language-wrap{display:inline-flex;align-items:center;gap:7px;padding-inline:11px 4px;border:1px solid var(--mer-border);border-radius:24px;background:#fffefa;white-space:nowrap}
+#mer-final-home .mf-language-wrap select{border:0;background:transparent;min-width:0;padding-right:6px}
+@media(max-width:480px){#mer-final-home .mf-navlinks>a[href="#mf-catalog"]{display:none}#mer-final-home .mf-language-wrap select{max-width:157px}}
+</style></head><body>
 <div id="mer-final-home" aria-label="Mer 최종 홈페이지 목업">
 <style>
 #mer-final-home{--mer-bg:#fcfaf5;--mer-navy:#092a45;--mer-muted:#556875;--mer-border:#dce1df;--mer-radius:18px;color:var(--mer-navy);background:var(--mer-bg);font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',sans-serif;isolation:isolate}
@@ -15,9 +18,13 @@
 #mer-final-home:lang(ja) :is(h1,p){word-break:normal;overflow-wrap:anywhere}
 @media(max-width:480px){#mer-final-home .mf-navlinks{gap:10px}#mer-final-home .mf-navlinks a[href="#mf-help"]{display:none}#mer-final-home .mf-language{font-size:16px}#mer-final-home:lang(en) h1{font-size:31px}}
 #mer-final-home .cat{padding:28px 0}#mer-final-home .cat-controls{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}#mer-final-home .cat-controls :is(input,select,button){min-height:44px;max-width:100%;padding:8px 12px;border:1px solid var(--mer-border);border-radius:8px;background:#fffefa;color:inherit;font:inherit}#mer-final-home .cat-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px;margin-top:12px}#mer-final-home .cat-item{padding:16px;border:1px solid var(--mer-border);border-radius:12px;background:#fffefa;display:grid;gap:8px;font-size:14px;line-height:1.6}#mer-final-home .cat-item img{width:36px;border-radius:8px}#mer-final-home .cat-item a{text-decoration:underline}
-#mer-final-home .mf-app-main:not(:has(.mf-preview)){grid-template-columns:1fr}</style>
+#mer-final-home .mf-app-main:not(:has(.mf-preview)){grid-template-columns:1fr}#mer-final-home .mf-language-wrap{position:relative;min-height:44px;gap:8px;padding:0 12px;background:var(--mer-bg);font-size:13px}
+#mer-final-home .mf-language-wrap select{position:absolute;inset:0;width:100%;height:100%;max-width:none;opacity:0;cursor:pointer}
+#mer-final-home .mf-language-wrap:focus-within{outline:2px solid #407b9b;outline-offset:3px}
+#mer-final-home .mf-language-wrap svg{flex:none}
+</style>
 <div class="mf-wrap">
-<nav class="mf-nav" aria-label="주 메뉴"><a class="mf-brand" href="#mf-top" aria-label="Mer 홈"><img class="mf-wordmark" data-wordmark alt="Mer"></a><div class="mf-navlinks"><a href="#mf-catalog">전체 앱</a><a href="#mf-help">도움말</a><a class="mf-ig" href="https://www.instagram.com/themer.apps/" target="_blank" rel="noopener">Instagram ↗</a><select class="mf-language" data-language aria-label="Language"><option value="en" lang="en">English</option><option value="ko" lang="ko">한국어</option><option value="ja" lang="ja">日本語</option></select></div></nav>
+<nav class="mf-nav" aria-label="주 메뉴"><a class="mf-brand" href="#mf-top" aria-label="Mer 홈"><img class="mf-wordmark" data-wordmark alt="Mer"></a><div class="mf-navlinks"><a href="#mf-catalog">전체 앱</a><a href="#mf-help">도움말</a><a class="mf-ig" href="https://www.instagram.com/themer.apps/" target="_blank" rel="noopener">Instagram ↗</a><label class="mf-language-wrap"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg><select class="mf-language" data-language aria-label="Language"><option value="en" lang="en">English</option><option value="ko" lang="ko">한국어</option><option value="ja" lang="ja">日本語</option><option value="zh-Hans" lang="zh-Hans">简体中文</option><option value="zh-TW" lang="zh-TW">繁體中文（台灣）</option></select><span data-lang-caption aria-hidden="true">English</span><svg class="mf-chevron" aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m4 6 4 4 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></label></div></nav>
 <header class="mf-hero" id="mf-top"><div><div class="mf-eyebrow">MER · INDEPENDENT APP STUDIO</div><h1>일상의 작은 불편을<br>해결하는 앱들.</h1><p class="mf-lead">하루를 계획하고, 루틴을 이어가고, 둔 곳을 기억하는 일.<br>당신의 하루에 필요한 작은 앱을 만듭니다.</p><a class="mf-explore" href="#mf-apps">나에게 맞는 앱 찾기 <span aria-hidden="true">↓</span></a></div><div class="mf-family" data-family aria-label="Mer의 앱 5개"></div></header>
 <section id="mf-apps" aria-label="Mer 출시 앱"><div class="mf-sectionhead"><h2>우리의 앱</h2><span>5개의 작은 도움</span></div><div class="mf-grid" data-grid></div></section>
 <section class="cat" id="mf-catalog"><h2 data-cat-title></h2><div class="cat-controls"><input type="search" data-query><select data-category></select></div><p role="status" data-count></p><div class="cat-list" data-results></div><div class="cat-controls"><button type="button" data-prev></button><button type="button" data-next></button></div></section><section class="mf-help" id="mf-help"><div><h2>사용 중 도움이 필요하신가요?</h2><p>앱별 도움말과 개인정보처리방침을<br>한곳에서 확인하세요.</p></div><div data-support></div></section>
@@ -54,30 +61,357 @@ root.querySelector('[data-wordmark]').src=media.webmark;
 root.querySelector('[data-family]').innerHTML=apps.map(a=>`<a href="#mf-${a.key}" aria-label="${a.name} 소개로 이동"><img src="${media[a.key]}" alt=""><span>${a.name}</span></a>`).join('');
 root.querySelector('[data-grid]').innerHTML=apps.map(a=>`<article class="mf-app" id="mf-${a.key}"><div class="mf-app-main"><div><div class="mf-app-heading"><img class="mf-icon" src="${media[a.key]}" alt="${a.name} 앱 아이콘"><div><h3>${a.name}</h3><p class="mf-category">${a.category}</p></div></div><p class="mf-desc">${a.desc}</p></div>${media[a.key+'-screen']?`<div class="mf-preview" style="--preview:${a.tint}"><img src="${media[a.key+'-screen']||media[a.key+'-store-1']}" alt="${a.name} 실제 화면 미리보기"></div>`:''}</div><div class="mf-actions"><span aria-hidden="true"></span><a class="mf-store" href="https://apps.apple.com/app/id${a.id}" target="_blank" rel="noopener" aria-label="${a.name} App Store에서 보기">App Store <span aria-hidden="true">↗</span></a></div><details class="mf-details"><summary aria-label="${a.name} 기능 보기">기능 보기</summary><div class="mf-detail-body"><p>${a.detail}</p>${media[a.key+'-screen']?`<div class="mf-fullscreens"><img src="${media[a.key+'-store-0']}" alt="${a.name} App Store 소개 첫 이미지" loading="lazy"><img src="${media[a.key+'-store-1']}" alt="${a.name} App Store 소개 두 번째 이미지" loading="lazy"></div>`:''}<div class="mf-detail-links"><a href="https://woorlds.github.io/app-legal/${a.key}/support/" target="_blank" rel="noopener">고객지원 ↗</a><a href="https://woorlds.github.io/app-legal/${a.key}/privacy/" target="_blank" rel="noopener">개인정보처리방침 ↗</a>${a.key==='lorumi'?'<a href="https://woorlds.github.io/lorumi/" lang="vi" target="_blank" rel="noopener">Tiếng Việt ↗</a>':''}</div></div></details></article>`).join('')+`<aside class="mf-note" aria-label="Mer 소개"><img class="mf-wordmark" src="${media.webmark}" alt="Mer"><h2>작지만 분명한 쓰임새.<br>매일 조금 더 편하게.</h2><p>여러 가지 일상에, 저마다의 작은 도움을.<br>Mer는 자주 마주치는 불편에서 앱을 시작합니다.</p></aside>`;
 root.querySelector('[data-support]').innerHTML=apps.map(a=>`<details class="mf-support"><summary>${a.name}</summary><div class="mf-support-links"><a href="https://woorlds.github.io/app-legal/${a.key}/support/" target="_blank" rel="noopener">고객지원 ↗</a><a href="https://woorlds.github.io/app-legal/${a.key}/privacy/" target="_blank" rel="noopener">개인정보처리방침 ↗</a></div></details>`).join('');
-const phrases=[['고객지원 ↗','Support ↗','サポート ↗'],['개인정보처리방침 ↗','Privacy policy ↗','プライバシーポリシー ↗'],['전체 앱','All apps','すべてのアプリ'],
-['주 메뉴','Main navigation','メインナビゲーション'],['Mer 홈','Mer home','Mer ホーム'],['앱 둘러보기','Apps','アプリ'],['도움말','Help','ヘルプ'],
-['일상의 작은 불편을','Apps that solve everyday','日常の小さな不便を'],['해결하는 앱들.','little frustrations.','解消するアプリ。'],
-['하루를 계획하고, 루틴을 이어가고, 둔 곳을 기억하는 일.','Plan your day, keep a routine going, and remember where things are.','一日の予定を立て、習慣を続け、物の置き場所を覚えておく。'],
-['당신의 하루에 필요한 작은 앱을 만듭니다.','We make small apps for the things you do every day.','毎日に役立つ、小さなアプリを作っています。'],
-['나에게 맞는 앱 찾기','Explore the apps','アプリを探す'],['우리의 앱','Our apps','私たちのアプリ'],['5개의 작은 도움','Five everyday tools','毎日を助ける5つのアプリ'],
-['기능 보기','See features','機能を見る'],['고객지원','Support','サポート'],['개인정보처리방침','Privacy policy','プライバシーポリシー'],
-['작지만 분명한 쓰임새.','Small apps with a clear purpose.','小さくても、役に立つ。'],['매일 조금 더 편하게.','A little easier, every day.','毎日を、少し快適に。'],
-['여러 가지 일상에, 저마다의 작은 도움을.','Different days call for different tools.','さまざまな日常に、それぞれの小さな助けを。'],['Mer는 자주 마주치는 불편에서 앱을 시작합니다.','At Mer, each app starts with an everyday problem.','Merのアプリは、日常の小さな不便から始まります。'],
-['사용 중 도움이 필요하신가요?','Need a hand?','お困りですか？'],['앱별 도움말과 개인정보처리방침을','Find support and privacy information','各アプリのサポートとプライバシーポリシーを'],['한곳에서 확인하세요.','for each app in one place.','まとめて確認できます。'],
-['단계별 루틴 타이머','Step-by-step routine timer','ステップ式ルーティンタイマー'],['지금 할 일에만 집중하세요. 순서와 시간이 있는 루틴을 한 단계씩 이어갑니다.','Focus on what’s next. Work through timed routines one step at a time.','今やることに集中。時間を決めたルーティンを一つずつ進められます。'],['각 단계에 이름과 시간을 정하면 타이머가 순서대로 이어집니다. 현재 단계와 남은 시간, 전체 완료 예정 시간을 확인할 수 있습니다.','Name and time each step. See the current step, time remaining, and expected finish time.','各ステップに名前と時間を設定。現在のステップ、残り時間、完了予定時刻を確認できます。'],
-['물건을 둔 곳 기록','Remember where things are','物の置き場所を記録'],['“어디 뒀지?” 싶은 순간, 사진과 키워드로 물건을 둔 곳을 찾아보세요.','Where did I put it? Find where you left things with photos and keywords.','「どこに置いたっけ？」写真とキーワードで置き場所を見つけましょう。'],['충전기, 열쇠, 중요한 서류까지. 물건을 둔 곳을 사진과 키워드로 남겨두고 검색하세요. GPS 추적이 아닌, 기억을 돕는 기록에 집중합니다.','Save where you left chargers, keys, or papers with photos and keywords. Search your notes later without GPS tracking.','充電器や鍵、大切な書類の置き場所を写真とキーワードで記録し、後から検索できます。GPS追跡は使いません。'],
-['간결한 하루 계획','Simple daily planning','シンプルな一日の計画'],['한 줄로 적고 시간을 정하세요. 타임라인과 알림이 제때 시작하도록 돕습니다.','Write one line and pick a time. A timeline and reminders help you start on time.','一行書いて時間を設定。タイムラインと通知が、時間どおりの開始を助けます。'],['제목, 시작 시간, 진행 시간만으로 타임박스를 만드세요. 오늘의 타임라인에서 할 일을 확인하고 알림으로 다음 시작을 챙길 수 있습니다.','Create a time block with a title, start time, and duration. See your day on a timeline and get a reminder for what’s next.','タイトル、開始時刻、所要時間だけで時間枠を作成。今日の予定をタイムラインで確認し、次の開始を通知で受け取れます。'],
-['매매와 감정 일지','Trading and emotion journal','取引と感情の記録'],['결과뿐 아니라 판단도 기록하세요. 감정과 매매를 함께 돌아보는 일지입니다.','Record the decisions behind your trades. Reflect on your emotions alongside your results.','結果だけでなく、判断も記録。取引とそのときの感情を一緒に振り返れます。'],['매수·매도·관망의 이유를 남기고, 감정 상태에 따른 결과를 비교하세요. 주식·코인 등 다양한 자산의 매매를 기록하고 자신의 투자 습관을 돌아보는 도구입니다.','Record why you bought, sold, or waited. Compare outcomes across emotional states and reflect on your trading habits.','買い・売り・様子見の理由を残し、感情の状態ごとに結果を比較。株式や暗号資産などの取引習慣を振り返れます。'],
-['한국 귀화시험 학습','Korean naturalization exam prep','韓国の帰化試験対策'],['익숙한 언어의 도움으로, 한국 귀화시험과 면접을 차근차근 준비하세요.','Prepare for the Korean naturalization exam and interview with explanations in a familiar language.','使い慣れた言語の解説で、韓国の帰化試験と面接を少しずつ準備しましょう。'],['한국어 문제와 답변 연습에 베트남어·중국어 간체·중국어 번체·크메르어·태국어 학습 도움을 제공합니다. 정부기관과 무관한 비공식 학습 앱입니다.','Practice questions and answers in Korean with help in Vietnamese, Simplified and Traditional Chinese, Khmer, or Thai. An independent study app with no government affiliation.','韓国語の問題と回答を練習し、ベトナム語、中国語（簡体字・繁体字）、クメール語、タイ語の解説を利用できます。政府機関とは関係のない非公式の学習アプリです。'],
-['Mer 최종 홈페이지 목업','Mer homepage preview','Mer ホームページのプレビュー'],['Mer의 앱 5개','Five apps by Mer','Merの5つのアプリ'],['Mer 출시 앱','Released Mer apps','公開中のMerアプリ'],['Mer 소개','About Mer','Merについて'],
-['소개로 이동','overview','の紹介へ'],['앱 아이콘','app icon','のアプリアイコン'],['실제 화면 미리보기','app preview','の画面プレビュー'],['App Store에서 보기','on the App Store','をApp Storeで見る'],['App Store 소개 첫 이미지','App Store screenshot 1','のApp Store画像1'],['App Store 소개 두 번째 이미지','App Store screenshot 2','のApp Store画像2']
+const phrases=[
+  [
+    "고객지원 ↗",
+    "Support ↗",
+    "サポート ↗",
+    "客户支持 ↗",
+    "客戶支援 ↗"
+  ],
+  [
+    "개인정보처리방침 ↗",
+    "Privacy policy ↗",
+    "プライバシーポリシー ↗",
+    "隐私政策 ↗",
+    "隱私權政策 ↗"
+  ],
+  [
+    "전체 앱",
+    "All apps",
+    "すべてのアプリ",
+    "全部应用",
+    "所有 App"
+  ],
+  [
+    "주 메뉴",
+    "Main navigation",
+    "メインナビゲーション",
+    "主导航",
+    "主選單"
+  ],
+  [
+    "Mer 홈",
+    "Mer home",
+    "Mer ホーム",
+    "Mer 首页",
+    "Mer 首頁"
+  ],
+  [
+    "앱 둘러보기",
+    "Apps",
+    "アプリ",
+    "应用",
+    "App"
+  ],
+  [
+    "도움말",
+    "Help",
+    "ヘルプ",
+    "帮助",
+    "幫助"
+  ],
+  [
+    "일상의 작은 불편을",
+    "Apps that solve everyday",
+    "日常の小さな不便を",
+    "解决日常小麻烦的",
+    "解決日常小麻煩的"
+  ],
+  [
+    "해결하는 앱들.",
+    "little frustrations.",
+    "解消するアプリ。",
+    "实用应用。",
+    "實用 App。"
+  ],
+  [
+    "하루를 계획하고, 루틴을 이어가고, 둔 곳을 기억하는 일.",
+    "Plan your day, keep a routine going, and remember where things are.",
+    "一日の予定を立て、習慣を続け、物の置き場所を覚えておく。",
+    "规划一天、坚持习惯、记住物品放在哪里。",
+    "規劃一天、維持習慣、記住物品放在哪裡。"
+  ],
+  [
+    "당신의 하루에 필요한 작은 앱을 만듭니다.",
+    "We make small apps for the things you do every day.",
+    "毎日に役立つ、小さなアプリを作っています。",
+    "我们为日常生活打造小巧实用的应用。",
+    "我們為日常生活打造小巧實用的 App。"
+  ],
+  [
+    "나에게 맞는 앱 찾기",
+    "Explore the apps",
+    "アプリを探す",
+    "探索应用",
+    "探索 App"
+  ],
+  [
+    "우리의 앱",
+    "Our apps",
+    "私たちのアプリ",
+    "我们的应用",
+    "我們的 App"
+  ],
+  [
+    "5개의 작은 도움",
+    "Five everyday tools",
+    "毎日を助ける5つのアプリ",
+    "五款日常工具",
+    "五款日常工具"
+  ],
+  [
+    "기능 보기",
+    "See features",
+    "機能を見る",
+    "查看功能",
+    "查看功能"
+  ],
+  [
+    "고객지원",
+    "Support",
+    "サポート",
+    "客户支持",
+    "客戶支援"
+  ],
+  [
+    "개인정보처리방침",
+    "Privacy policy",
+    "プライバシーポリシー",
+    "隐私政策",
+    "隱私權政策"
+  ],
+  [
+    "작지만 분명한 쓰임새.",
+    "Small apps with a clear purpose.",
+    "小さくても、役に立つ。",
+    "用途明确的小应用。",
+    "用途明確的小型 App。"
+  ],
+  [
+    "매일 조금 더 편하게.",
+    "A little easier, every day.",
+    "毎日を、少し快適に。",
+    "让每天轻松一点。",
+    "讓每天輕鬆一點。"
+  ],
+  [
+    "여러 가지 일상에, 저마다의 작은 도움을.",
+    "Different days call for different tools.",
+    "さまざまな日常に、それぞれの小さな助けを。",
+    "不同的日常，需要不同的工具。",
+    "不同的日常，需要不同的工具。"
+  ],
+  [
+    "Mer는 자주 마주치는 불편에서 앱을 시작합니다.",
+    "At Mer, each app starts with an everyday problem.",
+    "Merのアプリは、日常の小さな不便から始まります。",
+    "Mer 的每款应用都从一个日常问题出发。",
+    "Mer 的每款 App 都從一個日常問題出發。"
+  ],
+  [
+    "사용 중 도움이 필요하신가요?",
+    "Need a hand?",
+    "お困りですか？",
+    "需要帮助吗？",
+    "需要幫忙嗎？"
+  ],
+  [
+    "앱별 도움말과 개인정보처리방침을",
+    "Find support and privacy information",
+    "各アプリのサポートとプライバシーポリシーを",
+    "查看每款应用的支持与隐私信息，",
+    "查看每款 App 的支援與隱私資訊，"
+  ],
+  [
+    "한곳에서 확인하세요.",
+    "for each app in one place.",
+    "まとめて確認できます。",
+    "所有信息集中在这里。",
+    "所有資訊集中在這裡。"
+  ],
+  [
+    "단계별 루틴 타이머",
+    "Step-by-step routine timer",
+    "ステップ式ルーティンタイマー",
+    "分步日程计时器",
+    "逐步流程計時器"
+  ],
+  [
+    "지금 할 일에만 집중하세요. 순서와 시간이 있는 루틴을 한 단계씩 이어갑니다.",
+    "Focus on what’s next. Work through timed routines one step at a time.",
+    "今やることに集中。時間を決めたルーティンを一つずつ進められます。",
+    "专注眼前的任务，按计时步骤完成日常流程。",
+    "專注眼前的任務，依照計時步驟完成日常流程。"
+  ],
+  [
+    "각 단계에 이름과 시간을 정하면 타이머가 순서대로 이어집니다. 현재 단계와 남은 시간, 전체 완료 예정 시간을 확인할 수 있습니다.",
+    "Name and time each step. See the current step, time remaining, and expected finish time.",
+    "各ステップに名前と時間を設定。現在のステップ、残り時間、完了予定時刻を確認できます。",
+    "设置每个步骤的名称和时长，查看当前步骤、剩余时间和预计完成时间。",
+    "設定每個步驟的名稱和時間，查看目前步驟、剩餘時間和預計完成時間。"
+  ],
+  [
+    "물건을 둔 곳 기록",
+    "Remember where things are",
+    "物の置き場所を記録",
+    "记录物品位置",
+    "記錄物品位置"
+  ],
+  [
+    "“어디 뒀지?” 싶은 순간, 사진과 키워드로 물건을 둔 곳을 찾아보세요.",
+    "Where did I put it? Find where you left things with photos and keywords.",
+    "「どこに置いたっけ？」写真とキーワードで置き場所を見つけましょう。",
+    "东西放哪儿了？用照片和关键词找回物品的位置。",
+    "東西放哪裡了？用照片和關鍵字找回物品的位置。"
+  ],
+  [
+    "충전기, 열쇠, 중요한 서류까지. 물건을 둔 곳을 사진과 키워드로 남겨두고 검색하세요. GPS 추적이 아닌, 기억을 돕는 기록에 집중합니다.",
+    "Save where you left chargers, keys, or papers with photos and keywords. Search your notes later without GPS tracking.",
+    "充電器や鍵、大切な書類の置き場所を写真とキーワードで記録し、後から検索できます。GPS追跡は使いません。",
+    "用照片和关键词记录充电器、钥匙或文件的位置，之后随时搜索，无需 GPS 定位。",
+    "用照片和關鍵字記錄充電器、鑰匙或文件的位置，之後隨時搜尋，無須 GPS 定位。"
+  ],
+  [
+    "간결한 하루 계획",
+    "Simple daily planning",
+    "シンプルな一日の計画",
+    "简洁的每日计划",
+    "簡潔的每日計畫"
+  ],
+  [
+    "한 줄로 적고 시간을 정하세요. 타임라인과 알림이 제때 시작하도록 돕습니다.",
+    "Write one line and pick a time. A timeline and reminders help you start on time.",
+    "一行書いて時間を設定。タイムラインと通知が、時間どおりの開始を助けます。",
+    "写一行，选个时间。时间轴和提醒帮你准时开始。",
+    "寫一行，選個時間。時間軸和提醒幫你準時開始。"
+  ],
+  [
+    "제목, 시작 시간, 진행 시간만으로 타임박스를 만드세요. 오늘의 타임라인에서 할 일을 확인하고 알림으로 다음 시작을 챙길 수 있습니다.",
+    "Create a time block with a title, start time, and duration. See your day on a timeline and get a reminder for what’s next.",
+    "タイトル、開始時刻、所要時間だけで時間枠を作成。今日の予定をタイムラインで確認し、次の開始を通知で受け取れます。",
+    "用标题、开始时间和时长创建时间块，在时间轴上查看计划，并收到下一项提醒。",
+    "用標題、開始時間和時長建立時間區塊，在時間軸上查看計畫，並收到下一項提醒。"
+  ],
+  [
+    "매매와 감정 일지",
+    "Trading and emotion journal",
+    "取引と感情の記録",
+    "交易与情绪日志",
+    "交易與情緒日誌"
+  ],
+  [
+    "결과뿐 아니라 판단도 기록하세요. 감정과 매매를 함께 돌아보는 일지입니다.",
+    "Record the decisions behind your trades. Reflect on your emotions alongside your results.",
+    "結果だけでなく、判断も記録。取引とそのときの感情を一緒に振り返れます。",
+    "记录交易背后的决定，回顾结果和当时的情绪。",
+    "記錄交易背後的決定，回顧結果和當時的情緒。"
+  ],
+  [
+    "매수·매도·관망의 이유를 남기고, 감정 상태에 따른 결과를 비교하세요. 주식·코인 등 다양한 자산의 매매를 기록하고 자신의 투자 습관을 돌아보는 도구입니다.",
+    "Record why you bought, sold, or waited. Compare outcomes across emotional states and reflect on your trading habits.",
+    "買い・売り・様子見の理由を残し、感情の状態ごとに結果を比較。株式や暗号資産などの取引習慣を振り返れます。",
+    "记录买入、卖出或观望的原因，比较不同情绪下的交易结果，反思自己的交易习惯。",
+    "記錄買進、賣出或觀望的原因，比較不同情緒下的交易結果，檢視自己的交易習慣。"
+  ],
+  [
+    "한국 귀화시험 학습",
+    "Korean naturalization exam prep",
+    "韓国の帰化試験対策",
+    "韩国入籍考试准备",
+    "韓國入籍考試準備"
+  ],
+  [
+    "익숙한 언어의 도움으로, 한국 귀화시험과 면접을 차근차근 준비하세요.",
+    "Prepare for the Korean naturalization exam and interview with explanations in a familiar language.",
+    "使い慣れた言語の解説で、韓国の帰化試験と面接を少しずつ準備しましょう。",
+    "用熟悉的语言理解讲解，逐步准备韩国入籍考试和面试。",
+    "用熟悉的語言理解解說，逐步準備韓國入籍考試和面試。"
+  ],
+  [
+    "한국어 문제와 답변 연습에 베트남어·중국어 간체·중국어 번체·크메르어·태국어 학습 도움을 제공합니다. 정부기관과 무관한 비공식 학습 앱입니다.",
+    "Practice questions and answers in Korean with help in Vietnamese, Simplified and Traditional Chinese, Khmer, or Thai. An independent study app with no government affiliation.",
+    "韓国語の問題と回答を練習し、ベトナム語、中国語（簡体字・繁体字）、クメール語、タイ語の解説を利用できます。政府機関とは関係のない非公式の学習アプリです。",
+    "用韩语练习问题与回答，提供越南语、简体中文、繁体中文、高棉语和泰语讲解。本应用与政府机构无关。",
+    "用韓語練習問題與回答，提供越南語、簡體中文、繁體中文、高棉語和泰語解說。本 App 與政府機關無關。"
+  ],
+  [
+    "Mer 최종 홈페이지 목업",
+    "Mer homepage preview",
+    "Mer ホームページのプレビュー",
+    "Mer 首页",
+    "Mer 首頁"
+  ],
+  [
+    "Mer의 앱 5개",
+    "Five apps by Mer",
+    "Merの5つのアプリ",
+    "Mer 的五款应用",
+    "Mer 的五款 App"
+  ],
+  [
+    "Mer 출시 앱",
+    "Released Mer apps",
+    "公開中のMerアプリ",
+    "Mer 已发布的应用",
+    "Mer 已上架的 App"
+  ],
+  [
+    "Mer 소개",
+    "About Mer",
+    "Merについて",
+    "关于 Mer",
+    "關於 Mer"
+  ],
+  [
+    "소개로 이동",
+    "overview",
+    "の紹介へ",
+    "简介",
+    "簡介"
+  ],
+  [
+    "앱 아이콘",
+    "app icon",
+    "のアプリアイコン",
+    "应用图标",
+    "App 圖示"
+  ],
+  [
+    "실제 화면 미리보기",
+    "app preview",
+    "の画面プレビュー",
+    "界面预览",
+    "畫面預覽"
+  ],
+  [
+    "App Store에서 보기",
+    "on the App Store",
+    "をApp Storeで見る",
+    "在 App Store 查看",
+    "在 App Store 查看"
+  ],
+  [
+    "App Store 소개 첫 이미지",
+    "App Store screenshot 1",
+    "のApp Store画像1",
+    "App Store 截图 1",
+    "App Store 截圖 1"
+  ],
+  [
+    "App Store 소개 두 번째 이미지",
+    "App Store screenshot 2",
+    "のApp Store画像2",
+    "App Store 截图 2",
+    "App Store 截圖 2"
+  ]
 ];
 const selector=root.querySelector('[data-language]');
 const translate=(value,index)=>{const clean=value.trim();const row=phrases.find(p=>p[0]===clean);if(row)return value.replace(clean,row[index]);const app=apps.find(a=>clean.startsWith(a.name+' '));if(!app)return value;const suffix=phrases.find(p=>p[0]===clean.slice(app.name.length+1));return suffix?app.name+(index===2?'':' ')+suffix[index]:value;};
-const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>n.parentElement.closest('style,script,select')?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT});
+const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>n.parentElement.closest('style,script,select,[data-lang-caption]')?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT});
 const nodes=[];while(walker.nextNode())nodes.push([walker.currentNode,walker.currentNode.nodeValue]);
 const labels=[root,...root.querySelectorAll('[aria-label],img[alt]')].flatMap(el=>['aria-label','alt'].filter(k=>el.hasAttribute(k)).map(k=>[el,k,el.getAttribute(k)]));
-function language(code){const index={ko:0,en:1,ja:2}[code];root.lang=code;selector.setAttribute('aria-label',['언어','Language','言語'][index]);nodes.forEach(([node,original])=>node.nodeValue=translate(original,index));labels.forEach(([el,key,original])=>el.setAttribute(key,translate(original,index)));}
+function language(code){const index={ko:0,en:1,ja:2,'zh-Hans':3,'zh-TW':4}[code];root.lang=code;root.querySelector('[data-lang-caption]').textContent=code==='zh-TW'?'繁體中文':selector.selectedOptions[0].textContent;document.documentElement.lang=code;selector.setAttribute('aria-label',['언어','Language','言語','语言','語言'][index]);nodes.forEach(([node,original])=>node.nodeValue=translate(original,index));labels.forEach(([el,key,original])=>el.setAttribute(key,translate(original,index)));}
 selector.addEventListener('change',()=>language(selector.value));language('en');
 
 
@@ -86,19 +420,19 @@ const find=name=>catalog.querySelector('[data-'+name+']');
 const query=find('query'), category=find('category');
 const prev=find('prev'), next=find('next');
 const groups=[
- ['루틴','Routines','習慣'],['생활','Everyday','暮らし'],['계획','Planning','計画'],['금융','Finance','金融'],['학습','Learning','学習']
+ ['루틴','Routines','習慣','习惯','習慣'],['생활','Everyday','暮らし','生活','生活'],['계획','Planning','計画','计划','計畫'],['금융','Finance','金融','金融','金融'],['학습','Learning','学習','学习','學習']
 ];
-const keywords=['타이머 timer タイマー','물건 photos 写真','시간 time 時間','매매 trading 取引','귀화 exam 試験'];
+const keywords=['타이머 timer タイマー 计时器 計時器','물건 photos 写真','시간 time 時間','매매 trading 取引','귀화 exam 試験'];
 let page=0;
 function renderCatalog(){
- const i={ko:0,en:1,ja:2}[root.lang];
- const t=(ko,en,ja)=>[ko,en,ja][i];
- find('cat-title').textContent=t('전체 앱','All apps','すべてのアプリ');
- query.placeholder=t('앱 이름이나 용도로 검색','Search by app name or purpose','名前や用途で検索');
+ const i={ko:0,en:1,ja:2,'zh-Hans':3,'zh-TW':4}[root.lang];
+ const t=(...texts)=>texts[i] ?? texts[1];
+ find('cat-title').textContent=t('전체 앱','All apps','すべてのアプリ','全部应用','所有 App');
+ query.placeholder=t('앱 이름이나 용도로 검색','Search by app name or purpose','名前や用途で検索','按名称或用途搜索','依名稱或用途搜尋');
  query.setAttribute('aria-label',query.placeholder);
- category.setAttribute('aria-label',t('카테고리','Category','カテゴリ'));
+ category.setAttribute('aria-label',t('카테고리','Category','カテゴリ','类别','類別'));
  const selected=category.value||'all';
- category.innerHTML='<option value="all">'+t('모든 카테고리','All categories','すべてのカテゴリ')+'</option>'+groups.map((g,n)=>'<option value="'+n+'">'+g[i]+'</option>').join('');
+ category.innerHTML='<option value="all">'+t('모든 카테고리','All categories','すべてのカテゴリ','所有类别','所有類別')+'</option>'+groups.map((g,n)=>'<option value="'+n+'">'+g[i]+'</option>').join('');
  category.value=selected;
  const entries=Array.from({length:apps.length},(_,n)=>{
    const group=n%apps.length, app=apps[group], demo=n>=apps.length;
@@ -110,13 +444,13 @@ function renderCatalog(){
  const filtered=entries.filter(e=>(selected==='all'||String(e.group)===selected)&&[e.name,e.description,groups[e.group].join(' '),e.demo?'':keywords[e.group]].join(' ').toLowerCase().includes(term));
  const pages=Math.max(1,Math.ceil(filtered.length/12));
  page=Math.min(page,pages-1);
- find('count').textContent=t('검색 결과 ','Results: ','検索結果 ')+filtered.length+' / '+entries.length+(filtered.length?' · '+(page+1)+' / '+pages:'');
+ find('count').textContent=t('검색 결과 ','Results: ','検索結果 ','搜索结果 ','搜尋結果 ')+filtered.length+' / '+entries.length+(filtered.length?' · '+(page+1)+' / '+pages:'');
  find('results').innerHTML=filtered.slice(page*12,page*12+12).map(e=>{
   const icon=e.demo?'':'<img src="'+media[e.app.key]+'" alt="">';
-  const link=e.demo?'':'<a href="#mf-'+e.app.key+'">'+t('앱 상세 보기','View app details','アプリの詳細')+'</a>';
+  const link=e.demo?'':'<a href="#mf-'+e.app.key+'">'+t('앱 상세 보기','View app details','アプリの詳細','查看应用详情','查看 App 詳細資訊')+'</a>';
   return '<article class="cat-item">'+icon+'<strong>'+e.name+'</strong><span>'+groups[e.group][i]+'</span><span>'+e.description+'</span>'+link+'</article>';
- }).join('')||'<p>'+t('일치하는 앱이 없습니다.','No matching apps.','一致するアプリがありません。')+'</p>';
- prev.textContent=t('이전','Previous','前へ');next.textContent=t('다음','Next','次へ');
+ }).join('')||'<p>'+t('일치하는 앱이 없습니다.','No matching apps.','一致するアプリがありません。','没有匹配的应用。','找不到符合的 App。')+'</p>';
+ prev.textContent=t('이전','Previous','前へ','上一页','上一頁');next.textContent=t('다음','Next','次へ','下一页','下一頁');
  prev.disabled=page===0;next.disabled=page>=pages-1;
 }
 for(const control of [query,category])control.addEventListener(control===query?'input':'change',()=>{page=0;renderCatalog();});
@@ -129,5 +463,4 @@ const design={radius:18};if(globalThis.Tweak){const tweak=new Tweak({container:r
 })();
 </script>
 </div>
-
 </body></html>
