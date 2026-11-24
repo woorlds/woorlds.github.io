@@ -33,7 +33,7 @@ a:focus-visible { border-radius: 5px; outline: 3px solid var(--action); outline-
 h1, h2, h3, p { margin-top: 0; }
 h1, h2, h3, .lead { overflow-wrap: break-word; word-break: keep-all; }
 h1 { max-width: 680px; margin-bottom: 18px; font-size: clamp(42px, 12vw, 72px); letter-spacing: -2.8px; line-height: 1.02; }
-h1 span { color: var(--action); }
+h1 span { display: block; color: var(--action); }
 .lead { max-width: 570px; margin-bottom: 22px; color: var(--secondary-text); font-size: 16px; }
 .actions { display: flex; align-items: center; gap: 10px; margin-bottom: 30px; }
 .button, .support-link { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; font-weight: 740; }
