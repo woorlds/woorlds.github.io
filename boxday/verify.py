@@ -23,21 +23,21 @@ EXPECTED = {
     "index.html": {
         "lang": "en",
         "canonical": ALTERNATES["en"],
-        "stylesheet": "./style.css",
+        "stylesheet": "./style.css?v=2.1",
         "icon": "./assets/icon.png",
         "images": ("./assets/icon.png", "./assets/en/today.webp", "./assets/en/editor.webp", "./assets/en/impact.webp", "./assets/en/backlog.webp", "./assets/en/review.webp"),
     },
     "ko/index.html": {
         "lang": "ko",
         "canonical": ALTERNATES["ko"],
-        "stylesheet": "../style.css",
+        "stylesheet": "../style.css?v=2.1",
         "icon": "../assets/icon.png",
         "images": ("../assets/icon.png", "../assets/ko/today.webp", "../assets/ko/editor.webp", "../assets/ko/impact.webp", "../assets/ko/backlog.webp", "../assets/ko/review.webp"),
     },
     "ja/index.html": {
         "lang": "ja",
         "canonical": ALTERNATES["ja"],
-        "stylesheet": "../style.css",
+        "stylesheet": "../style.css?v=2.1",
         "icon": "../assets/icon.png",
         "images": ("../assets/icon.png", "../assets/ja/today.webp", "../assets/ja/editor.webp", "../assets/ja/impact.webp", "../assets/ja/backlog.webp", "../assets/ja/review.webp"),
     },
@@ -110,7 +110,7 @@ def verify_page(relative_path: str, contract: dict[str, object]) -> list[str]:
     if icons != [contract["icon"]]:
         failures.append(f"{relative_path}: favicon path is incorrect")
 
-    image_sources = tuple(image.get("src", "") for image in parser.images)
+    image_sources = tuple(urlparse(image.get("src", "")).path for image in parser.images)
     if image_sources != contract["images"]:
         failures.append(f"{relative_path}: localized image paths are incorrect")
     for image in parser.images:
