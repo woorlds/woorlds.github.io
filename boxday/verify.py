@@ -25,21 +25,21 @@ EXPECTED = {
         "canonical": ALTERNATES["en"],
         "stylesheet": "./style.css",
         "icon": "./assets/icon.png",
-        "images": ("./assets/icon.png", "./assets/en/today.webp", "./assets/en/today.webp", "./assets/en/editor.webp", "./assets/en/notifications.webp", "./assets/en/stats.webp"),
+        "images": ("./assets/icon.png", "./assets/en/today.webp", "./assets/en/editor.webp", "./assets/en/impact.webp", "./assets/en/backlog.webp", "./assets/en/review.webp"),
     },
     "ko/index.html": {
         "lang": "ko",
         "canonical": ALTERNATES["ko"],
         "stylesheet": "../style.css",
         "icon": "../assets/icon.png",
-        "images": ("../assets/icon.png", "../assets/ko/today.webp", "../assets/ko/today.webp", "../assets/ko/editor.webp", "../assets/ko/notifications.webp", "../assets/ko/stats.webp"),
+        "images": ("../assets/icon.png", "../assets/ko/today.webp", "../assets/ko/editor.webp", "../assets/ko/impact.webp", "../assets/ko/backlog.webp", "../assets/ko/review.webp"),
     },
     "ja/index.html": {
         "lang": "ja",
         "canonical": ALTERNATES["ja"],
         "stylesheet": "../style.css",
         "icon": "../assets/icon.png",
-        "images": ("../assets/icon.png", "../assets/ja/today.webp", "../assets/ja/today.webp", "../assets/ja/editor.webp", "../assets/ja/notifications.webp", "../assets/ja/stats.webp"),
+        "images": ("../assets/icon.png", "../assets/ja/today.webp", "../assets/ja/editor.webp", "../assets/ja/impact.webp", "../assets/ja/backlog.webp", "../assets/ja/review.webp"),
     },
 }
 FORBIDDEN = ("DEVELOPER", "Seed 200 Test Boxes", "Delete Test Data", "Critical Alerts", "Coming soon")
@@ -53,7 +53,6 @@ class PageParser(HTMLParser):
         self.links: list[dict[str, str]] = []
         self.images: list[dict[str, str]] = []
         self.ids: list[str] = []
-        self.notification_crop_count = 0
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         values = {key: value or "" for key, value in attrs}
@@ -67,8 +66,6 @@ class PageParser(HTMLParser):
             self.links.append(values)
         elif tag == "img":
             self.images.append(values)
-        if "notification-crop" in values.get("class", "").split():
-            self.notification_crop_count += 1
 
 
 def local_path(page: Path, value: str) -> Path | None:
@@ -131,8 +128,6 @@ def verify_page(relative_path: str, contract: dict[str, object]) -> list[str]:
     below_fold = [image for image in parser.images if image is not hero and "app-icon" not in image.get("class", "").split()]
     if any(image.get("loading") != "lazy" for image in below_fold):
         failures.append(f"{relative_path}: below-fold images must use loading=lazy")
-    if parser.notification_crop_count != 1:
-        failures.append(f"{relative_path}: expected one notification-crop container")
     for phrase in FORBIDDEN:
         if phrase in source:
             failures.append(f"{relative_path}: forbidden phrase {phrase!r}")
@@ -144,7 +139,7 @@ def verify_root_link() -> list[str]:
     if not root_index.is_file():
         return ["root index.html is missing"]
     source = root_index.read_text(encoding="utf-8")
-    if not re.search(r'<a\s+href="/boxday/">Boxday</a>', source):
+    if not re.search(r'<a\s+href="/boxday/">Boxday(?: 2\.1)?</a>', source):
         return ["root index.html: Boxday marketing link is missing"]
     return []
 
@@ -156,12 +151,12 @@ def main() -> int:
         failures.append("style.css: stylesheet is missing")
     else:
         css = stylesheet.read_text(encoding="utf-8")
-        for required in ("notification-crop", "prefers-color-scheme: dark", "prefers-reduced-motion", "min-width: 44px", "word-break: keep-all"):
+        for required in ("prefers-color-scheme: dark", "prefers-reduced-motion", "min-width: 44px", "word-break: keep-all"):
             if required not in css:
                 failures.append(f"style.css: missing {required!r}")
         if re.search(r"min-(?:width|height):\s*(?:4[0-3]|[0-3]?\d)px", css):
             failures.append("style.css: interactive targets must not shrink below 44px")
-        for required in ("--action: #b8442c", "--action-strong: #a63820", "aspect-ratio: 1 / .66", "@media (max-width: 350px)", ".brand span { display: none; }"):
+        for required in ("--action: #b8442c", "--action-strong: #a63820", "@media (max-width: 350px)", ".brand span { display: none; }"):
             if required not in css:
                 failures.append(f"style.css: missing reviewed mobile/accessibility rule {required!r}")
     failures.extend(verify_root_link())
